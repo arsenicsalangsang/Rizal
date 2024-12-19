@@ -48,7 +48,7 @@ image gameover:
 
 label scenario_7:
     # Background and music for Scenario 7
-    play music audio/suspense.mp3" loop
+    play music "audio/suspense.mp3" loop
     scene flag with fade
 
     # Question for Scenario 7
