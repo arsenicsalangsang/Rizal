@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 97: expected menuitem
-    return
-    ^
+File "game/script.rpy", line 134: end of line expected.
+    scene UST, Rizal enrolled in Philosophy and Letters at resize_to_1080p
+             ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Thu Dec 19 21:01:24 2024
+Thu Dec 19 23:49:00 2024
