@@ -63,7 +63,7 @@ label scenario_7:
 label write_constitution:
     # Background and music transition
     scene bg1 with dissolve
-    play music "bgm_success.mp3" loop
+    play music "audio/success.mp3"  loop
 
     # Frame 1 Storyline
     show rizal at left
