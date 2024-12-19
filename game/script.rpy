@@ -1,7 +1,7 @@
 ﻿label scenario_7:
     # Background and music for Scenario 7
     play music "bgm_scenario7.mp3" loop
-    scene bg_philippine_flag with fade
+    scene FlagofthePhilippines with fade
 
     # Question for Scenario 7
     narrator "Do you want Rizal to write the Constitución de La Liga Filipina?"
@@ -38,11 +38,30 @@ label write_constitution:
 label no_constitution:
     # Background and music for "No" choice
     scene bg_dark with fade
-    play music "bgm_game_over.mp3"
+    play music "bgm_game_over.mp3" loop
 
-    # Game Over Text
-    narrator "The Constitución de La Liga Filipina will not exist.\nThe objectives of Rizal in the 'End Goals' will not happen."
-    narrator "Game Over"
+    # Short cutscene for the consequences of saying "No"
+    scene rizal_portrait with dissolve
+    narrator "José Rizal declined to involve himself in any groups or movements."
+    narrator "Without Rizal's leadership and ideas, the formation of La Liga Filipina was never realized."
+    play music "bgm_sad_violin.mp3" loop
+    show rizal_sitting at center with fade
+    narrator "Rizal did not give us any plans to work for the welfare of the Philippines."
+    narrator "Without his ideas, the Philippines struggled in its quest for unity and freedom."
+
+    # Adding symbolic imagery
+    show rizal_in_ exile at left
+    narrator "He remained in exile, unable to guide the nation toward a brighter future."
+    show bg_empty_field at right with fade
+    narrator "The Philippines remained fragmented, with no unified cause."
+
+    # Final message
+    narrator "Rizal's vision of a united, empowered Philippines was lost."
+
+    # Transition to Game Over
+    stop music fadeout 3.0
+    scene bg_dark with fade
+    narrator "Game Over."
 
     # Restart Option
     menu:
