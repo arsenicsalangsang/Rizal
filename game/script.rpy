@@ -1,7 +1,13 @@
-﻿label scenario_7:
+﻿image flag:
+    "flag.png"
+
+image nationalism:
+    "nationalism.jpg"
+
+label scenario_7:
     # Background and music for Scenario 7
     play music "bgm_scenario7.mp3" loop
-    scene FlagofthePhilippines with fade
+    scene flag with fade
 
     # Question for Scenario 7
     narrator "Do you want Rizal to write the Constitución de La Liga Filipina?"
@@ -14,15 +20,19 @@
 
 label write_constitution:
     # Background and music transition
-    scene bg_meeting_room with dissolve
+    scene nationalism with dissolve
     play music "bgm_success.mp3" loop
 
     # Frame 1 Storyline
-    show rizal_portrait at left
+    show rizal at left
     narrator "La Liga Filipina, founded by José Rizal, aimed to unite Filipinos and improve society. Its rules, secretly printed in Hong Kong, required members to be loyal, honest, and committed to helping the group’s goals."
-    hide rizal_portrait
+
+    hide rizal
+    hide nationalism
+    show andres at top 
 
     show bg_tondo_monument at right
+
     narrator "The Liga inspired leaders like Andres Bonifacio and Apolinario Mabini, leading to the Philippine revolution. In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
     hide bg_tondo_monument
 
@@ -50,7 +60,7 @@ label no_constitution:
     narrator "Without his ideas, the Philippines struggled in its quest for unity and freedom."
 
     # Adding symbolic imagery
-    show rizal_in_ exile at left
+    show rizal_in_exile at left
     narrator "He remained in exile, unable to guide the nation toward a brighter future."
     show bg_empty_field at right with fade
     narrator "The Philippines remained fragmented, with no unified cause."
