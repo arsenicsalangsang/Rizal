@@ -1,134 +1,57 @@
-﻿# The script of the game goes in this file.
+﻿label scenario_7:
+    # Background and music for Scenario 7
+    play music "bgm_scenario7.mp3" loop
+    scene bg_philippine_flag with fade
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-# $ Zeil = Character('Zeil', color="#E03B8B")
-default Zeil = Character('Zeil', color="#E03B8B")       
-default Narrator = Character('Narrator', color="#E03B8B")
-# The game starts here.
+    # Question for Scenario 7
+    narrator "Do you want Rizal to write the Constitución de La Liga Filipina?"
 
+    menu:
+        "Yes":
+            jump write_constitution
+        "No":
+            jump no_constitution
 
+label write_constitution:
+    # Background and music transition
+    scene bg_meeting_room with dissolve
+    play music "bgm_success.mp3" loop
 
-#Character Images:
-image pepe:
-    "pepe.png"
-    zoom 1.5
+    # Frame 1 Storyline
+    show rizal_portrait at left
+    narrator "La Liga Filipina, founded by José Rizal, aimed to unite Filipinos and improve society. Its rules, secretly printed in Hong Kong, required members to be loyal, honest, and committed to helping the group’s goals."
+    hide rizal_portrait
 
-transform resize_to_1080p:
-    xsize 1920
-    ysize 9090
+    show bg_tondo_monument at right
+    narrator "The Liga inspired leaders like Andres Bonifacio and Apolinario Mabini, leading to the Philippine revolution. In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
+    hide bg_tondo_monument
 
-label start:
-    play music "audio/birds.mp3" fadein 1.0 volume 1.5
-    scene bg 1 at resize_to_1080p
-    "A peaceful rural setting in the Philippines. We hear birds chirping, and the wind rustling through the trees. The year is 1872, and the world of Jose Rizal is about to change."
-   
-    scene bg 3 at resize_to_1080p
-    show pepe 
-    "Narrator" "Jose Protacio Rizal Mercado y Alonzo Realonda, a young man from Calamba, Laguna, had dreams far beyond the borders of his hometown. But the winds of change were beginning to stir, with tensions rising against the Spanish colonial rule."
-    
-    hide pepe
-    "Narrator" "Jose was not just an aspiring scholar; he was a visionary who would one day ignite the flame of reform for the Philippines. But first, he needed to make a decision that would alter the course of his life and the nation’s future."
+    # Frame 2 Storyline
+    show rizal_writing at center
+    narrator "José Rizal authored the constitution of La Liga Filipina, outlining 'end goals', which hold significant importance:\n- Mutual protection in all want and necessity\n- Defense against all violence and injustice\n- Encourage education, agriculture, industry, and commerce\n- Study and application of reforms\nThese goals reflect Rizal's vision for a united and empowered Filipino nation."
+    hide rizal_writing
 
-    scene bg 2 at resize_to_1080p
-    "Rizal and his brother Paciano are seated by the window, gazing out into the distance."
-
-label Scenario1GomBurza:
-    scene gomburza at resize_to_1080p
-    show pepe
-    "Narrator" "The scene shifts to the somber execution of Gomburza in 1872, their bodies hanging in public as a symbol of Spanish oppression. The sound of the crowd murmuring in fear and sorrow echoes in the background."
-    
-label sprites:
-    "Zeil"  "But wait, where are you?"
-    show epep
-    "Zeil"  "Oh!"
-    show zeil angry
-    "Zeil" "It's not like I was looking for you or anything."
-    show extra normal at right
-    "Random Girl" "Tsundere..."
-    hide extra
-    "Zeil" "..."
-label character:
-    show zeil bored
-    "Zeil" "Wow... this is too plain."
-    show zeil smile2 with dissolve
-    "Zeil" "I want my color to be bright pink!"
-    Zeil "Wonderful!"    
-label background:
-    Zeil "Come on! Let's go the gym."
-    scene bg gym at resize_to_1080p
-    with fade
-    
-    show zeil smile2 at left
-    Zeil "You got here faster than I did!"  
-label bgm:
-    play music "audio/bgm_basketball.mp3" fadein 1.0 volume 1.5
-    Zeil "Oh, the basketball team is playing?"
-    Zeil "It's too loud. I'll meet you in the classroom."
-    
-    stop music fadeout 1.0
-    scene bg classroom
-    with fade
-    
-label sfx:
-    play sound "audio/sfx_bell.mp3"
-    Zeil "Oh no. It's already time."
-
-
-
-
-
-
-
-
-
-
-label choices:
-    default learned = False
-    Zeil "Did you learn a thing or two?"
-menu:
-    "Yes":
-        jump choices1_a
-    "...":
-        jump choices1_b
-label choices1_a:
-    Zeil "Good!"
-    $ learned = True
-    jump choices1_common
-
-label choices1_b:
-    Zeil "..."
-    jump choices1_common
-
-label choices1_common:
-    Zeil "For more effects, you can check out Ren'Py's guides."
-    Zeil "The link can be found in the description."
-
-label flags:
-    if learned:
-        Zeil "If you learned a thing or two, please like the video!"
-    else:
-        Zeil "You can check out my other videos to learn more about game development!"
-
+    # Transition to Scenario 8
+    stop music fadeout 3.0
     return
 
+label no_constitution:
+    # Background and music for "No" choice
+    scene bg_dark with fade
+    play music "bgm_game_over.mp3"
 
+    # Game Over Text
+    narrator "The Constitución de La Liga Filipina will not exist.\nThe objectives of Rizal in the 'End Goals' will not happen."
+    narrator "Game Over"
 
+    # Restart Option
+    menu:
+        "Restart":
+            jump scenario_7
 
+        "Exit":
+            return
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+label start:
+    # Entry point to the game
+    jump scenario_7
