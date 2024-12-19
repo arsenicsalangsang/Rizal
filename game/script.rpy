@@ -16,7 +16,7 @@ image pepe:
 
 transform resize_to_1080p:
     xsize 1920
-    ysize 1080
+    ysize 9090
 
 label start:
     play music "audio/birds.mp3" fadein 1.0 volume 1.5
