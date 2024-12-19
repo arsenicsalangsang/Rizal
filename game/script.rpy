@@ -4,14 +4,19 @@
 # name of the character.
 # $ Zeil = Character('Zeil', color="#E03B8B")
 default Zeil = Character('Zeil', color="#E03B8B")       
+default Narrator = Character('Narrator', color="#E03B8B")
 # The game starts here.
+
 label start:
-    "During a video tutorial…"
+    scene bg 3430
+    "Narrator" "A peaceful rural setting in the Philippines. We hear birds chirping, and the wind rustling through the trees. The year is 1872, and the world of Jose Rizal is about to change."
+
     "Zeil" "Hi! This is Zeil."
     "Zeil" "I started \"Zeil Learnings\" recently to share my game-making knowledge."
+
 label sprites:
     "Zeil"  "But wait, where are you?"
-    show zeil delighted
+    show epep
     "Zeil"  "Oh!"
     show zeil angry
     "Zeil" "It's not like I was looking for you or anything."
