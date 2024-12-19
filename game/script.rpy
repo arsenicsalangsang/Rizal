@@ -110,30 +110,42 @@ label choices2_common:
     return
 
 
+#ATENEO VS UST
+
 label School:
     scene bg classroom at resize_to_1080p 
     show pepe_student
     "If Jose Rizal starts to study at Ateneo Municipal De Manila and later transfers to UST. He will be able to make progress on his mission. This will follow the original historical timeline of Jose Rizal's journey becoming a nationalist."
     
 label choiceschool:
-
+    scene ateneo vs ust at resize_to_1080p
 menu:
+    
     "Ateneo to UST":
         jump choiceschool_a
     "UST only":
         jump choiceschool_b
 
 label choiceschool_a:
+    scene 1_ateneo at resize_to_1080p
     "Jose Rizal began his higher education at the prestigious Ateneo Municipal de Manila, where he thrived in an environment of intellectual rigor, discipline, and advanced studies. He quickly earned high grades, medals, and respect from his professors."
+    
+    scene fr paula de sanchez ust drawing classroom at resize_to_1080p
     "At Ateneo, Rizal was inspired by his professors, especially Fr. Francisco de Paula Sanchez, who encouraged his love for poetry and intellectual growth. His extracurricular activities in literature and physical training further shaped his character."
+    
+    scene 1_graduation at resize_to_1080p
     "However, after completing his degree in Bachelor of Arts, Rizal's family faced financial strain, and Rizal decided to continue his studies at the Universidad de Santo Tomas, despite his growing dissatisfaction with Spanish colonial rule and the oppressive educational system."
+    
+    scene USTLet at resize_to_1080p
     "At UST, Rizal enrolled in Philosophy and Letters, but he quickly grew disillusioned. The harsh, repressive teaching methods of the Dominican professors and racial discrimination against Filipino students made it difficult for him to focus on his studies."
+    
+    scene UST
     "Despite the struggles, Rizal pursued a medical course and won literary awards for works that expressed his growing nationalist sentiments. His time at UST further fueled his desire for reform, and he eventually decided to continue his education abroad, where he could work towards his vision of change for the Philippines."
     jump Scenario_3
 
 label choiceschool_b:
+    scene 2_UST ACADEMIC DECLINE at resize_to_1080p
     "Jose Rizal entered the Universidad de Santo Tomas in 1877, pursuing Philosophy and Letters, but quickly became disheartened by the oppressive atmosphere, outdated teaching methods, and racial discrimination from Dominican professors."
-
     "Struggling without the intellectual stimulation he had at Ateneo, his academic performance declined, and his passion for reform faded. His disillusionment led him to abandon his original mission, and his time at UST became a period of stagnation, ultimately thwarting his dreams of improving his country."
     return
 
