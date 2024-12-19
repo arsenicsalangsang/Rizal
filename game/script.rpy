@@ -3,6 +3,14 @@
 
 image bg1:
     "bg 1.jpg"
+image revolution:
+    "revolution.jpg"
+
+image monumenttondo:
+    "monumenttondo.jpg"
+image writingrizal:
+    "writingrizal.jpg"
+
 
 label scenario_7:
     # Background and music for Scenario 7
@@ -28,18 +36,20 @@ label write_constitution:
     narrator "La Liga Filipina, founded by José Rizal, aimed to unite Filipinos and improve society. Its rules, secretly printed in Hong Kong, required members to be loyal, honest, and committed to helping the group’s goals."
 
     hide rizal
-    hide nationalism
-    show andres at top 
 
-    show bg_tondo_monument at right
+    scene revolution with dissolve
+    
 
-    narrator "The Liga inspired leaders like Andres Bonifacio and Apolinario Mabini, leading to the Philippine revolution. In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
-    hide bg_tondo_monument
+    narrator "The Liga inspired leaders like Andres Bonifacio and Apolinario Mabini, leading to the Philippine revolution."
+
+
+    scene monumenttondo with dissolve
+    narrator "In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
 
     # Frame 2 Storyline
-    show rizal_writing at center
-    narrator "José Rizal authored the constitution of La Liga Filipina, outlining 'end goals', which hold significant importance:\n- Mutual protection in all want and necessity\n- Defense against all violence and injustice\n- Encourage education, agriculture, industry, and commerce\n- Study and application of reforms\nThese goals reflect Rizal's vision for a united and empowered Filipino nation."
-    hide rizal_writing
+    
+    scene writingrizal with dissolve
+    narrator "José Rizal drafted La Liga Filipina's constitution, aiming for mutual protection, justice, education, economic progress, and meaningful reforms—key steps toward a united Filipino nation."    
 
     # Transition to Scenario 8
     stop music fadeout 3.0
