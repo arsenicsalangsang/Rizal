@@ -2,9 +2,9 @@
 errors listed below, and try again.
 
 
-File "game/script.rpy", line 36: end of line expected.
-    show peper.png
-              ^
+File "game/script.rpy", line 11: Line is indented, but the preceding image statement statement does not expect a block. Please check this line's indentation. You may have forgotten a colon (:).
+    "bg 2.jpg"
+    ^
 
 Ren'Py Version: Ren'Py 8.3.4.24120703
-Thu Dec 19 13:55:34 2024
+Thu Dec 19 17:19:02 2024
