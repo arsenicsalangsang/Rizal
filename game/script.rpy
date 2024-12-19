@@ -1,5 +1,5 @@
 ﻿image flag:
-    "flag.png"
+    "flag.jpg"
 
 image bg1:
     "bg 1.jpg"
@@ -11,10 +11,44 @@ image monumenttondo:
 image writingrizal:
     "writingrizal.jpg"
 
+image writingrizal:
+    "writingrizal.jpg"
+
+image rizaldecline:
+    "rizaldecline.png"
+
+    
+image rizalleader:
+    "rizalleader.webp"
+
+
+image welfare:
+    "welfare.jpg"
+
+
+image struggles:
+    "struggles.jpg"
+
+image exile:
+    "exile.jpg"
+
+image PhWar:
+    "PhWar.png"
+
+image nounity:
+    "nounity.png"
+
+image restartexit:
+    "restartexit.jpg"
+
+image gameover:
+    "gameover.jpg"
+
+
 
 label scenario_7:
     # Background and music for Scenario 7
-    play music "bgm_scenario7.mp3" loop
+    play music audio/suspense.mp3" loop
     scene flag with fade
 
     # Question for Scenario 7
@@ -57,33 +91,42 @@ label write_constitution:
 
 label no_constitution:
     # Background and music for "No" choice
-    scene bg_dark with fade
     play music "bgm_game_over.mp3" loop
 
     # Short cutscene for the consequences of saying "No"
-    scene rizal_portrait with dissolve
+    scene rizaldecline with dissolve
     narrator "José Rizal declined to involve himself in any groups or movements."
+
+    scene rizalleader with dissolve
     narrator "Without Rizal's leadership and ideas, the formation of La Liga Filipina was never realized."
     play music "bgm_sad_violin.mp3" loop
-    show rizal_sitting at center with fade
+    scene welfare with dissolve
+
     narrator "Rizal did not give us any plans to work for the welfare of the Philippines."
+
+    scene struggles with dissolve
     narrator "Without his ideas, the Philippines struggled in its quest for unity and freedom."
 
     # Adding symbolic imagery
-    show rizal_in_exile at left
+    scene exile with dissolve
     narrator "He remained in exile, unable to guide the nation toward a brighter future."
-    show bg_empty_field at right with fade
+   
+    scene PhWar with dissolve
     narrator "The Philippines remained fragmented, with no unified cause."
 
     # Final message
+   
+    scene nounity with dissolve
     narrator "Rizal's vision of a united, empowered Philippines was lost."
 
     # Transition to Game Over
     stop music fadeout 3.0
-    scene bg_dark with fade
+    scene gameover with fade
     narrator "Game Over."
 
     # Restart Option
+    scene restartexit with dissolve
+    
     menu:
         "Restart":
             jump scenario_7
