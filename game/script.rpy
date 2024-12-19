@@ -1,8 +1,8 @@
 ﻿image flag:
     "flag.png"
 
-image nationalism:
-    "nationalism.jpg"
+image bg1:
+    "bg 1.jpg"
 
 label scenario_7:
     # Background and music for Scenario 7
@@ -20,7 +20,7 @@ label scenario_7:
 
 label write_constitution:
     # Background and music transition
-    scene nationalism with dissolve
+    scene bg1 with dissolve
     play music "bgm_success.mp3" loop
 
     # Frame 1 Storyline
