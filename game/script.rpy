@@ -71,8 +71,9 @@ label write_constitution:
 
     scene monumenttondo with dissolve
     Narrator "In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
-
-
+    
+    scene writingrizal with dissolve
+    Narrator "José Rizal drafted La Liga Filipina's constitution, aiming for mutual protection, justice, education, economic progress, and meaningful reforms—key steps toward a united Filipino nation."
    
 
     # Transition to Scenario 8
