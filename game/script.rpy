@@ -1,45 +1,32 @@
-﻿# Define Narrator character
+﻿# Define the Narrator character
 define Narrator = Character('Narrator', color="#007BFF")
+define Rizal = Character('Rizal', color="#FF5733")
 
-image flag:
-    "flag.jpg"
+# Image definitions
+image flag = "flag.jpg"
+image bg1 = "bg1.jpg"
+image revolution = "revolution.jpg"
+image monumenttondo = "monumenttondo.jpg"
+image writingrizal = "writingrizal.jpg"
+image rizaldecline = "rizaldecline.png"
+image rizalleader = "rizalleader.webp"
+image welfare2 = "welfare2.jpg"
+image struggles = "struggles.jpg"
+image exile = "exile.jpg"
+image PhWar = "PhWar.png"
+image nounity = "nounity.png"
+image restartexit = "restartexit.jpg"
+image gameover = "gameover.jpg"
+image scene8 = "scene8.png" 
+image firstwrite = "firstwrite.jpg"
+image nolime = "nolime.jpg"
+image madrid = "madrid.jpg"
+image deskrizal = "deskrizal.jpg"
+image rizalnarrate = "rizalnarrate.png"
+image elfili = "elfili.webp"
 
-image bg1:
-    "bg 1.jpg"
-image revolution:
-    "revolution.jpg"
-
-image monumenttondo:
-    "monumenttondo.jpg"
-image writingrizal:
-    "writingrizal.jpg"
-
-image rizaldecline:
-    "rizaldecline.png"
-
-image rizalleader:
-    "rizalleader.webp"
-
-image welfare:
-    "welfare2.jpg"
-
-image struggles:
-    "struggles.jpg"
-
-image exile:
-    "exile.jpg"
-
-image PhWar:
-    "PhWar.png"
-
-image nounity:
-    "nounity.png"
-
-image restartexit:
-    "restartexit.jpg"
-
-image gameover:
-    "gameover.jpg"
+label start:
+    jump scenario_7
 
 label scenario_7:
     # Background and music for Scenario 7
@@ -71,42 +58,26 @@ label write_constitution:
 
     scene monumenttondo with dissolve
     Narrator "In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
-    
+
     scene writingrizal with dissolve
     Narrator "José Rizal drafted La Liga Filipina's constitution, aiming for mutual protection, justice, education, economic progress, and meaningful reforms—key steps toward a united Filipino nation."
-   
 
     # Transition to Scenario 8
     stop music fadeout 3.0
-    return
+    jump scenario_8
 
 label no_constitution:
     # Background and music for "No" choice
-    play music "audio/violin.mp3" volume 0.2 loop
+    play music "audio/violin.mp3" volume 0.3 loop
 
     # Short cutscene for the consequences of saying "No"
-    scene rizaldecline with dissolve
-    Narrator "José Rizal declined to involve himself in any groups or movements."
-
-    scene rizalleader with dissolve
-    Narrator "Without Rizal's leadership and ideas, the formation of La Liga Filipina was never realized."
-  
-    scene welfare2 with dissolve
-    Narrator "Rizal did not give us any plans to work for the welfare of the Philippines."
-
     scene struggles with dissolve
-    Narrator "Without his ideas, the Philippines struggled in its quest for unity and freedom."
+    Narrator "Without the Constitución de La Liga Filipina, the unity and organization needed to guide the people were lost. As a result, Filipinos struggled in their daily lives, without a clear direction or the reforms that could have improved their society."
 
-    # Adding symbolic imagery
-    scene exile with dissolve
-    Narrator "He remained in exile, unable to guide the nation toward a brighter future."
-   
-    scene PhWar with dissolve
-    Narrator "The Philippines remained fragmented, with no unified cause."
-
-    # Final message
     scene nounity with dissolve
-    Narrator "Rizal's vision of a united, empowered Philippines was lost."
+    Narrator "Without Rizal's vision, the hopes for a unified, independent Philippines remained unmet. This lack of leadership led to confusion and division, making the struggle for freedom and identity harder, especially during American colonization."
+
+
 
     # Transition to Game Over
     stop music fadeout 3.0
@@ -115,7 +86,6 @@ label no_constitution:
 
     # Restart Option
     scene restartexit with dissolve
-    
     menu:
         "Restart":
             jump scenario_7
@@ -123,6 +93,62 @@ label no_constitution:
         "Exit":
             return
 
-label start:
-    # Entry point to the game
-    jump scenario_7
+label scenario_8:
+    # Frame 2: Writing Noli Me Tangere and El Filibusterismo
+   
+    play music "cinematic.mp3" loop
+    scene scene8 with fade
+    
+    Narrator "continue..."
+    
+    scene firstwrite with fade
+   
+    Narrator "Rizal is filled with determination, but he knows the risks of challenging Spanish authorities. Will he commit to writing his first novel?"
+
+    menu:
+        "Rizal begins writing Noli Me Tangere.":
+            jump write_noli
+        "Rizal hesitates, fearing the consequences.":
+            jump hesitate_noli
+
+label write_noli:
+    # Successful writing scene
+    scene nolime with dissolve
+    Narrator "Rizal starts Noli Me Tangere, pouring his heart into the story of Filipino suffering under Spanish rule. His journey of reform begins."
+    
+    scene madrid with dissolve
+    Narrator "In 1884, while studying in Madrid, Rizal begins writing Noli Me Tangere, a novel that depicts the social and political issues in the Philippines under Spanish rule."
+
+
+    scene deskrizal with dissolve
+    # Frame 1 Storyline
+    show rizal at left 
+    Rizal "This story will reveal the truth about the plight of my people. It is my duty to tell it."
+
+    # Proceed to writing El Filibusterismo
+    scene elfili with dissolve
+    Narrator "After the success of Noli Me Tangere, Rizal starts writing El Filibusterismo, continuing his mission to expose societal issues and inspire change."
+
+    # Transition to next part of the game
+    stop music fadeout 3.0
+    return
+
+label hesitate_noli:
+    # Hesitation leading to Game Over
+    play music "audio/sad.mp3" volume 0.2 loop
+    scene rizaldecline with dissolve
+    Narrator "Rizal’s hesitation stifles his resolve. Without his voice, the call for reform fades into silence."
+
+    # Transition to Game Over
+    stop music fadeout 3.0
+    scene gameover with fade
+    Narrator "Game Over."
+
+    # Restart Option
+    scene restartexit with dissolve
+    menu:
+        "Restart":
+            jump scenario_7
+
+        "Exit":
+            return
