@@ -64,7 +64,7 @@ transform resize_to_1080p:
 
 
 # Scene 6
-label Scene6:
+label start:
     scene madrid bg at resize_to_1080p
     Narrator "After arriving to Madrid, Spain..."
 
@@ -77,6 +77,7 @@ label Scene6:
         
         "No, I prefer to focus on my work.":
             jump scene6_choice2
+
 
 # Scene 6 Correct Choice 
 label scene6_choice1:
@@ -161,6 +162,7 @@ label scene6_choice1:
             "Restart the game.":
                 return
 
+
     # Scene 6 Frame 2 Correct Choice
     label scene6_choice1_frame2:
         Narrator "You joined the Comité de Propaganda, immersing yourself in the 
@@ -196,8 +198,8 @@ label scene6_choice1:
 
     # Scene 6 Frame 2 Wrong Choice
     label scene6_choice1_frame2_wrong:
-        scene 
-        show pepe shock at left 
+        scene comite de propaganda bg at resize_to_1080p
+        show pepe shock at right 
 
         Narrator "You chose not to join the Comité de Propaganda, thinking their methods 
         didn't align with your ideals."
@@ -210,11 +212,19 @@ label scene6_choice1:
         other revolutionary figures."
 
         show pepe sad at right
+
+        Narrator "Your efforts, while well-intentioned, become fragmented and ultimately 
+        insufficient to spark the change you hoped for."
+    
+        Narrator "The fight for equality and justice under Spanish rule continues, but you 
+        are left behind."
         
         menu:
             "Restart the game.":
                 return
 
+
+    # Scene 6 Frame 3 Correct Choice
     label scene6_choice1_frame3:
         Narrator "You joined the Circulo Hispano-Filipino, engaging in rich discussions 
         that broadened your perspectives and strengthened bonds within the Filipino 
@@ -245,10 +255,31 @@ label scene6_choice1:
             "No, I prefer to stop.":
                 jump scene6_choice1_frame4_wrong
     
+    # Scene 6 Frame 3 Wrong Choice
     label scene6_choice1_frame3_wrong:
-        "Game Over"
-        return
+        scene circulo hispano filipino wrong bg at resize_to_1080p
+        show pepe at left
+        Narrator "You turned down the opportunity to join the Círculo Hispano-Filipino, 
+        thinking your efforts would be better spent elsewhere."
+    
+        Narrator "Without participating in their dialogues and cultural exchanges, you 
+        miss out on gaining crucial support from Filipinos and Spaniards who were working 
+        for peaceful reforms."
+        
+        Narrator "Your isolation and reluctance to engage with others who shared your 
+        goals create a widening gap in your mission."
+        
+        show pepe at left
 
+        Narrator "The road to reform requires unity, and by distancing yourself, you only 
+        push further away from the chance to shape history."
+        
+        menu:
+            "Restart the game":
+                return
+
+     
+    # Scene 6 Frame 4 Correct Choice
     label scene6_choice1_frame4:
         Narrator "You joined the Asociacion Hispano-Filipina, contributing to its mission 
         of advocating for Philippine welfare and reforms."
@@ -277,18 +308,110 @@ label scene6_choice1:
             "No, I think my priorities lie elsewhere.":
                 jump scene6_choice1_frame5_wrong
 
-        label scene6_choice1_frame5:
-            Narrator "You joined the Asociacion Internacional de Filipinistas, dedicating 
-            efforts to elevating the Philippines' global presence and fostering a deeper 
-            understanding of its plight."
+    # Scene 6 Frame 4 Wrong Choice
+    label scene6_choice1_frame_4_wrong:
+        scene asociacion hispano filipina wrong bg at resize_to_1080p
+        show pepe shock at right
 
-            jump scene7
+        Narrator "You opted not to join the Asociación Hispano-Filipina, thinking it 
+        wouldn't offer the political leverage you sought."
         
-        label scene6_choice1_frame5_wrong:
-            "Game Over"
-            return
+        Narrator "However, without the group's platform to advocate for Filipino rights, 
+        your influence remains limited, and your vision for the Philippines' future falters."
+        
+        Narrator "Rizal's journey would have been much harder without this network of 
+        reformists advocating for the Philippines in Spain."
+        
+        show pepe at right
+
+        Narrator "The movement loses momentum, and your efforts fall short, unable to reach 
+        the ears of those who could truly make a difference."
+        
+        menu:
+            "Restart the game":
+                return
+
+    # Scene 6 Frame 5 Correct Choice
+    label scene6_choice1_frame5:
+        Narrator "You joined the Asociacion Internacional de Filipinistas, dedicating 
+        efforts to elevating the Philippines' global presence and fostering a deeper 
+        understanding of its plight."
+
+        scene asociacion internacional de filipinistas bg at resize_to_1080p
+
+        Narrator "This organization was pivotal in promoting Filipino culture and advocating 
+        for the rights and welfare of the Filipino people on an international platform."
+
+        Narrator "Through your involvement, you helped raise global awareness about the 
+        injustices faced by Filipinos under Spanish rule, creating valuable diplomatic ties."
+
+        Narrator "Your engagement with international scholars and activists laid the groundwork 
+        for a broader movement that reached beyond the shores of the Philippines, encouraging 
+        solidarity from around the world."
+
+        scene madrid bg at resize_to_1080p
+
+        Narrator "As a result of your efforts, the global community began to take notice of the 
+        Philippines' struggle for reform, laying the foundations for the eventual recognition 
+        of Filipino rights."
+
+        show pepe smile at left
+
+        Narrator "The seeds of change were planted, and with the support of international allies, 
+        you now see the potential for true transformation in the Philippines."
+
+        menu:
+            Pepe "What should I do next in my mission for reform?"
+            
+            "Continue advocating internationally, pushing for more widespread recognition.":
+                jump scene7
+
+            "Focus on more local reforms, connecting with other Filipino reformists.":
+                jump scene6_choice1_frame5_wrong
+    
+    # Scene 6 Frame 5 Wrong Choice
+    label scene6_choice1_frame5_wrong:
+        scene asociacion internacional de filipinistas wrong bg at resize_to_1080p
+        show pepe shock at right
+
+        Narrator "You decided not to join the Asociación Internacional de Filipinistas, 
+        thinking international advocacy wasn't a priority for you."
+    
+        Narrator "But without this global network of scholars and reformists, your efforts 
+        to gain international attention for the Philippines' plight fall flat."
+        
+        Narrator "Rizal's work could have benefited from international recognition, but by 
+        rejecting this opportunity, you hinder the movement's chances for global support."
+
+        show pepe sad at right
+
+        Narrator "Your mission goes unnoticed, and the global support that could have 
+        changed the course of history never materializes."
+
+        menu:
+            "Restart the game.":
+                return
 
 # Scene 6 Wrong Choice
 label scene6_choice2:
-    "Game Over"
-    return
+    scene madrid wrong bg at resize_to_1080p
+    show pepe shock at left
+
+    Narrator "You chose to focus solely on your work, avoiding involvement in groups and movements."
+
+    Narrator "While your dedication is admirable, the fight for reform was never a solo journey."
+
+    show pepe sad at left
+    
+    Narrator "Rizal's legacy was built not just on individual brilliance but also on collaboration 
+    with others who shared his vision for change."
+    
+    Narrator "Without the support of these movements, your impact is limited, and the momentum for 
+    reform stalls."
+    
+    Narrator "In the end, the collective strength of the reformists was what moved mountains—and by 
+    opting out, you step away from the stage of history."
+    
+    menu:
+        "Restart the game":
+            return
