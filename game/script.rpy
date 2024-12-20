@@ -1,17 +1,17 @@
-﻿# The script of the game goes in this file.
+﻿default Narrator = Character('Narrator', color="#E03B8B")
+default Rizal = Character('Rizal')
 
-# Declare characters used by this game. The color argument colorizes the
-# name of the character.
-# $ Zeil = Character('Zeil', color="#E03B8B")
-default Zeil = Character('Zeil', color="#E03B8B")       
-default Narrator = Character('Narrator', color="#E03B8B")
-# The game starts here.
+# Character Images
+image rizal:
+    "rizal.png"
+    zoom 1.5
 
+image rizal smiling:
+    "rizal_smiling.png"
+    zoom 1.5
 
-
-#Character Images:
-image pepe:
-    "pepe.png"
+image rizal thinking:
+    "rizal_thinking.png"
     zoom 1.5
 
 transform resize_to_1080p:
@@ -19,116 +19,112 @@ transform resize_to_1080p:
     ysize 1080
 
 label start:
-    play music "audio/birds.mp3" fadein 1.0 volume 1.5
-    scene bg 1 at resize_to_1080p
-    "A peaceful rural setting in the Philippines. We hear birds chirping, and the wind rustling through the trees. The year is 1872, and the world of Jose Rizal is about to change."
+    play music "audio/intro.mp3" fadein 1.0 volume 1.5
+    scene bg 4 at resize_to_1080p
+    "The year is 1872, and the world of Jose Rizal is about to change."
+
+label Scenario_9: 
+    scene bg 5 at resize_to_1080p
+    show rizal at left
+    "Narrator" "After witnessing the execution of Gomburza, Jose Rizal embarks on a journey to different countries, determined to gather knowledge and ideas to bring reform to the Philippines."
+
+    play music "audio/travel.mp3" fadein 1.0 volume 1.5
+    scene bg 6 at resize_to_1080p
+    hide rizal
+    "Narrator" "Rizal travels across continents, observing governance, culture, and societal systems that could inspire his vision of a better nation."
+
+    menu:
+        "Apply the lessons Rizal learns":
+            jump Lessons_Applied
+        "Dismiss the lessons Rizal learns":
+            jump Lessons_Dismissed
+
+label Lessons_Applied:
+    "Narrator" "Rizal returns home with a clear vision: honest leadership from Singapore, the courage for freedom from Spain, discipline from Japan, progress from America, education from France, and rigor from Germany. He commits to using these ideals to inspire reforms for his country."
+    jump Scene_Selection
+
+label Lessons_Dismissed:
+    "Narrator" "Rizal becomes cynical and disheartened. He focuses only on the flaws he saw in the countries he visited and fails to see the value of the positive lessons they offered."
+    scene bg philippine at resize_to_1080p
+    "Narrator" "Back in the Philippines, Rizal’s disillusionment with his journey spreads. The reform movement lacks vision and unity. His failure to integrate the lessons of progress, freedom, and resilience leaves the people without the inspiration they desperately need."
+    
+    scene bg philippine at resize_to_1080p
+    "Narrator" "As tensions rise, a revolution breaks out. However, it lacks strong leadership and a clear purpose. The movement falters and collapses, crushed by the Spanish authorities."
+    
+    show rizal smiling at center
+    "Rizal" "I could have been the change... but my doubts and failure to see the bigger picture have cost my people their chance at freedom."
+    show rizal thinking at center
+    "Narrator" "The Philippines remains in the grip of colonial rule, its people disheartened and without the leadership needed to break free."
+    
+    menu
+        "Restart the game"
+        return
+
+label Scene_Selection:
+    # Scene 1: Singapore
+    scene bg singapore at resize_to_1080p
+    "Narrator" "In the English colony of Singapore, Rizal is impressed by its progress and the confidence of its people."
+    show rizal smiling at right
+    "Rizal" "A nation led with dignity and honesty can achieve so much. Our leaders must aspire to govern like this."
+
+    # Scene 2: Spain
+    scene bg spain at resize_to_1080p
+    "Narrator" "In Spain, Rizal experiences contrasting emotions."
+
+    menu:
+        "Visit Barcelona":
+            jump Barcelona_Scene
+        "Visit Madrid":
+            jump Madrid_Scene
+
+label Barcelona_Scene:
+    scene bg barcelona at resize_to_1080p
+    show rizal thinking at right
+    "Narrator" "Barcelona’s dirt and unwelcoming attitude disappoint him, but he realizes there is something to learn from the resilience of the people here."
+    show rizal smiling at center
+    "Rizal" "Although this city feels gritty, there is strength in its struggle for freedom. We must embrace this resilience in our fight for independence."
+    jump Conclude_in_Madrid
+
+label Madrid_Scene:
+    scene bg madrid at resize_to_1080p
+    show rizal thinking at left
+    "Narrator" "Madrid gives Rizal hope. It's vibrant, full of intellectual energy. There's a sense of freedom that stirs something in his heart."
+    show rizal smiling at left
+    "Rizal" "The ideals of freedom and courage here must be embraced by every Filipino. This city embodies the spirit of what we should strive for."
+    jump Conclude_in_Madrid
+
+label Conclude_in_Madrid:
+    scene bg madrid at resize_to_1080p
+    show rizal thinking at center
+    "Narrator" "Regardless of his earlier observations, Rizal finds himself deeply inspired by Madrid. The intellectual atmosphere and the ideals of freedom solidify his resolve to bring change to the Philippines."
+    "Narrator" "As Rizal continues his journey, his vision for reform becomes clearer. He is ready to take the next steps in his mission to awaken the Filipino spirit."
    
-    scene bg 3 at resize_to_1080p
-    show pepe 
-    "Narrator" "Jose Protacio Rizal Mercado y Alonzo Realonda, a young man from Calamba, Laguna, had dreams far beyond the borders of his hometown. But the winds of change were beginning to stir, with tensions rising against the Spanish colonial rule."
-    
-    hide pepe
-    "Narrator" "Jose was not just an aspiring scholar; he was a visionary who would one day ignite the flame of reform for the Philippines. But first, he needed to make a decision that would alter the course of his life and the nation’s future."
+label Japan_Scene
+    scene bg madrid at resize_to_1080p
+    show rizal smiling at center
+    "Narrator" "Rizal sees Japan’s unique blend of discipline and cultural pride."
+    show rizal smiling at left
+    "Rizal" "Their cleanliness, order, and respect for tradition allow Japan to progress without losing its identity. The Philippines must learn this balance."
 
-    scene bg 2 at resize_to_1080p
-    "Rizal and his brother Paciano are seated by the window, gazing out into the distance."
+label America_Scene
+    scene bg madrid at resize_to_1080p
+    show rizal thinking at center
+    "Narrator" "America’s advancements and industries inspire Rizal, but he cannot ignore its racial inequalities."
+    show rizal thinking at right
+    "Rizal"  'Progress means nothing without equality. True freedom must lift all people, not just a privileged few.'
 
-label Scenario1GomBurza:
-    scene gomburza at resize_to_1080p
-    show pepe
-    "Narrator" "The scene shifts to the somber execution of Gomburza in 1872, their bodies hanging in public as a symbol of Spanish oppression. The sound of the crowd murmuring in fear and sorrow echoes in the background."
-    
-label sprites:
-    "Zeil"  "But wait, where are you?"
-    show epep
-    "Zeil"  "Oh!"
-    show zeil angry
-    "Zeil" "It's not like I was looking for you or anything."
-    show extra normal at right
-    "Random Girl" "Tsundere..."
-    hide extra
-    "Zeil" "..."
-label character:
-    show zeil bored
-    "Zeil" "Wow... this is too plain."
-    show zeil smile2 with dissolve
-    "Zeil" "I want my color to be bright pink!"
-    Zeil "Wonderful!"    
-label background:
-    Zeil "Come on! Let's go the gym."
-    scene bg gym at resize_to_1080p
-    with fade
-    
-    show zeil smile2 at left
-    Zeil "You got here faster than I did!"  
-label bgm:
-    play music "audio/bgm_basketball.mp3" fadein 1.0 volume 1.5
-    Zeil "Oh, the basketball team is playing?"
-    Zeil "It's too loud. I'll meet you in the classroom."
-    
-    stop music fadeout 1.0
-    scene bg classroom
-    with fade
-    
-label sfx:
-    play sound "audio/sfx_bell.mp3"
-    Zeil "Oh no. It's already time."
+label France_Scene
+    scene bg madrid at resize_to_1080p
+    show rizal smiling at right
+    "Narrator" "Immersed in France’s intellectual atmosphere, Rizal realizes the power of education."
+    show rizal smiling at center
+    "Rizal" "Through education, we can empower Filipinos to lead their country to greatness."
 
-
-
-
-
-
-
-
-
-
-label choices:
-    default learned = False
-    Zeil "Did you learn a thing or two?"
-menu:
-    "Yes":
-        jump choices1_a
-    "...":
-        jump choices1_b
-label choices1_a:
-    Zeil "Good!"
-    $ learned = True
-    jump choices1_common
-
-label choices1_b:
-    Zeil "..."
-    jump choices1_common
-
-label choices1_common:
-    Zeil "For more effects, you can check out Ren'Py's guides."
-    Zeil "The link can be found in the description."
-
-label flags:
-    if learned:
-        Zeil "If you learned a thing or two, please like the video!"
-    else:
-        Zeil "You can check out my other videos to learn more about game development!"
-
+label Germany_Scene
+    scene bg madrid at resize_to_1080p
+    show rizal smiling at center
+    "Narrator" "In Germany, Rizal finds his ideal nation, admiring its academic excellence and discipline."
+    show rizal smiling at left
+    "Rizal" "The discipline and knowledge here are the foundations of progress. If our people adopt these values, we can transform the Philippines."
+   
     return
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
