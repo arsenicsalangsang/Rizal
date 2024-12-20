@@ -21,7 +21,7 @@ image rizalleader:
     "rizalleader.webp"
 
 image welfare:
-    "welfare.jpg"
+    "welfare2.jpg"
 
 image struggles:
     "struggles.jpg"
@@ -72,6 +72,9 @@ label write_constitution:
     scene monumenttondo with dissolve
     Narrator "In 1903, a monument in Tondo was built to honor its role in the fight for freedom."
 
+
+   
+
     # Transition to Scenario 8
     stop music fadeout 3.0
     return
@@ -87,7 +90,7 @@ label no_constitution:
     scene rizalleader with dissolve
     Narrator "Without Rizal's leadership and ideas, the formation of La Liga Filipina was never realized."
   
-    scene welfare with dissolve
+    scene welfare2 with dissolve
     Narrator "Rizal did not give us any plans to work for the welfare of the Philippines."
 
     scene struggles with dissolve
